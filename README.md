@@ -52,4 +52,8 @@ Each data source is paired with a preprocessing module and a specialized agent:
 - **Closed-loop learning**: Agents evolve based on feedback from alert outcomes.
 - **Cross-agent coordination**: Enables correlation across network, log, and email domains.
 - **Explainable alerting**: Alerts are traceable to contributing inputs and threat sources.
+<<<<<<< HEAD
 - **Scalable modularity**: Each agent and module can be independently tuned or replaced.
+=======
+- **Scalable modularity**: Each agent and module can be independently tuned or replaced.
+>>>>>>> aa9e7e56641c5a4b9ec50c437ac203d4224bdd61
