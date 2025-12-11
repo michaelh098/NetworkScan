@@ -1,79 +1,259 @@
 [
   {
-    "title": "Amazon Uncovers Attacks Exploited Cisco ISE and Citrix NetScaler as Zero-Day Flaws",
-    "link": "https://thehackernews.com/2025/11/amazon-uncovers-attacks-exploited-cisco.html",
-    "published": "2025-11-12",
-    "summary": "Amazon's threat intelligence team on Wednesday disclosed that it observed an advanced threat actor exploiting two then-zero-day security flaws in Cisco Identity Service Engine (ISE) and Citrix NetScaler ADC products as part of attacks designed to deliver custom malware.\n\"This discovery highlights the trend of threat actors focusing on critical identity and network access control infrastructure \u2013",
+    "title": "Storm-0249 Escalates Ransomware Attacks with ClickFix, Fileless PowerShell, and DLL Sideloading",
+    "link": "https://thehackernews.com/2025/12/storm-0249-escalates-ransomware-attacks.html",
+    "published": "2025-12-09",
+    "summary": "The threat actor known as Storm-0249 is likely shifting from its role as an initial access broker to adopt a combination of more advanced tactics like domain spoofing, DLL side-loading, and fileless PowerShell execution to facilitate ransomware attacks.\n\"These methods allow them to bypass defenses, infiltrate networks, maintain persistence, and operate undetected, raising serious concerns for",
     "source": "https://feeds.feedburner.com/TheHackersNews",
-    "score": 0.5239999890327454,
+    "score": 0.4659999907016754,
     "tags": [
-      "AWS",
-      "zero-day"
+      "ransomware"
     ],
-    "attack_vectors": [
-      "Exploiting zero-day security flaws in Cisco Identity Service Engine (ISE) and Citrix NetScaler ADC products",
-      "Delivering custom malware"
+    "Alert": "Advanced Ransomware Attacks via Domain Spoofing and Fileless Execution",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Initial Access",
+      "Execution",
+      "Persistence",
+      "Defense Evasion",
+      "Privilege Escalation"
     ],
-    "defensive_measures": [
-      "Regularly update and patch critical identity and network access control infrastructure",
-      "Implement a robust threat intelligence program to identify and respond to emerging threats",
-      "Use a web application firewall (WAF) to protect against exploitation of vulnerabilities",
-      "Implement a secure access control policy to limit access to sensitive resources"
+    "Mitre Techniques": [
+      "T1566",
+      "T1059.001"
     ],
-    "mitre_tactics": [
-      "TA0005: Vulnerability Scanning",
-      "TA0006: Network Scanning",
-      "TA0008: Disguise Attacks & Evasion",
-      "TA0010: Exploit Public-Facing Application",
-      "TA0011: Exploit Public-Facing Application"
+    "Mitigation Suggestions": [
+      "Implement domain name system (DNS) filtering to block spoofed domains",
+      "Use anti-malware software to detect and block fileless malware",
+      "Implement Windows Defender Advanced Threat Protection (ATP) to detect and prevent DLL side-loading attacks",
+      "Regularly update and patch operating systems and applications",
+      "Use network segmentation to limit the spread of malware"
     ],
     "relevant_devices": [
-      "Network"
+      "PC"
     ]
   },
   {
-    "title": "Active Directory Under Siege: Why Critical Infrastructure Needs Stronger Security",
-    "link": "https://thehackernews.com/2025/11/active-directory-under-siege-why.html",
-    "published": "2025-11-12",
-    "summary": "Active Directory remains the authentication backbone for&nbsp;over 90% of Fortune 1000 companies. AD's importance has grown as companies adopt hybrid and cloud infrastructure, but so has its complexity. Every application, user, and device traces back to AD for authentication and authorization, making it the ultimate target. For attackers, it represents the holy grail: compromise Active",
+    "title": "STAC6565 Targets Canada in 80% of Attacks as Gold Blade Deploys QWCrypt Ransomware",
+    "link": "https://thehackernews.com/2025/12/stac6565-targets-canada-in-80-of.html",
+    "published": "2025-12-09",
+    "summary": "Canadian organizations have emerged as the focus of a targeted cyber campaign orchestrated by a threat activity cluster known as STAC6565.\nCybersecurity company Sophos said it investigated almost 40 intrusions linked to the threat actor between February 2024 and August 2025. The campaign is assessed with high confidence to share overlaps with a hacking group known as Gold Blade, which is also",
     "source": "https://feeds.feedburner.com/TheHackersNews",
-    "score": 0.47200000286102295,
+    "score": 0.45100000500679016,
     "tags": [
-      "Active Directory"
+      "ransomware"
     ],
-    "attack_vectors": [
-      "Compromise Active Directory",
-      "Targeting AD for authentication and authorization"
+    "Alert": "STAC6565 and Gold Blade Targeted Campaign",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Initial Access",
+      "Execution",
+      "Persistence",
+      "Defense Evasion",
+      "Privilege Escalation",
+      "Credential Access",
+      "Discovery",
+      "Lateral Movement",
+      "Collection",
+      "Command and Control",
+      "Exfiltration",
+      "Impact"
     ],
-    "defensive_measures": [
-      "Implement multi-factor authentication (MFA) for AD",
-      "Regularly update and patch AD infrastructure",
-      "Monitor AD logs for suspicious activity",
-      "Implement least privilege access controls",
-      "Use secure password policies and password hashing",
-      "Limit access to sensitive areas of AD",
-      "Use AD auditing and reporting tools"
-    ],
-    "mitre_tactics": [
-      "T1547: Sensitive Configuration or Credential Disposal",
-      "T1552: Steal or Use Valid Accounts",
-      "T1558: Steal or Use Valid Account",
-      "T1210: Exploitation of Remote Services"
+    "Mitre Techniques": [],
+    "Mitigation Suggestions": [
+      "Implement robust threat intelligence and monitoring to detect potential intrusions",
+      "Conduct regular vulnerability assessments and patch management",
+      "Enforce strict access controls and privilege management",
+      "Use multi-factor authentication and secure password policies",
+      "Regularly update and harden security software and systems"
     ],
     "relevant_devices": [
-      "endpoint",
-      "network"
+      "PC"
     ]
   },
   {
-    "title": "CISO's Expert Guide To AI Supply Chain Attacks",
-    "link": "https://thehackernews.com/2025/11/cisos-expert-guide-to-ai-supply-chain.html",
-    "published": "2025-11-11",
-    "summary": "AI-enabled supply chain attacks jumped 156% last year. Discover why traditional defenses are failing and what CISOs must do now to protect their organizations.\nDownload the full CISO&rsquo;s expert guide to AI Supply chain attacks here.&nbsp;\nTL;DR\n\nAI-enabled supply chain attacks are exploding in scale and sophistication - Malicious package uploads to open-source repositories jumped 156% in",
+    "title": " Weekly Recap: USB Malware, React2Shell, WhatsApp Worms, AI IDE Bugs & More",
+    "link": "https://thehackernews.com/2025/12/weekly-recap-usb-malware-react2shell.html",
+    "published": "2025-12-08",
+    "summary": "It\u2019s been a week of chaos in code and calm in headlines. A bug that broke the internet\u2019s favorite framework, hackers chasing AI tools, fake apps stealing cash, and record-breaking cyberattacks \u2014 all within days. If you blink, you\u2019ll miss how fast the threat map is changing.\nNew flaws are being found, published, and exploited in hours instead of weeks. AI-powered tools meant to help developers",
     "source": "https://feeds.feedburner.com/TheHackersNews",
-    "score": 0.4390000104904175,
+    "score": 0.4869999885559082,
+    "tags": [],
+    "Alert": "Rapidly Evolving Threat Landscape",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Initial Access",
+      "Execution",
+      "Defense Evasion",
+      "Privilege Escalation",
+      "Collection",
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "Mitre Techniques": [
+      "T1059.001",
+      "T1566"
+    ],
+    "Mitigation Suggestions": [
+      "Regularly update and patch frameworks and AI-powered tools",
+      "Implement robust security measures to detect and prevent exploitation of new flaws",
+      "Use AI-powered tools with caution and monitor their behavior",
+      "Verify the authenticity of apps and tools before use",
+      "Implement a robust incident response plan to quickly respond to cyberattacks"
+    ],
+    "relevant_devices": [
+      "PC"
+    ]
+  },
+  {
+    "title": "How Can Retailers Cyber-Prepare for the Most Vulnerable Time of the Year?",
+    "link": "https://thehackernews.com/2025/12/how-can-retailers-cyber-prepare-for.html",
+    "published": "2025-12-08",
+    "summary": "The holiday season compresses risk into a short, high-stakes window. Systems run hot, teams run lean, and attackers time automated campaigns to get maximum return. Multiple industry threat reports show that bot-driven fraud, credential stuffing and account takeover attempts intensify around peak shopping events, especially the weeks around Black Friday and Christmas.&nbsp;\nWhy holiday peaks",
+    "source": "https://feeds.feedburner.com/TheHackersNews",
+    "score": 0.46700000762939453,
+    "tags": [],
+    "Alert": "Holiday Season Threat Alert: Bot-Driven Fraud and Account Takeover",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Initial Access",
+      "Execution",
+      "Defense Evasion",
+      "Credential Access",
+      "Discovery"
+    ],
+    "Mitre Techniques": [
+      "T1059.001",
+      "T1566"
+    ],
+    "Mitigation Suggestions": [
+      "Implement multi-factor authentication to prevent credential stuffing",
+      "Monitor systems for suspicious activity during peak shopping events",
+      "Use bot-detection tools to identify and block automated campaigns",
+      "Train teams to be vigilant during the holiday season and report any suspicious activity"
+    ],
+    "relevant_devices": [
+      "email server",
+      "Router/Firewall",
+      "file Server",
+      "ISP",
+      "PC"
+    ]
+  },
+  {
+    "title": "ThreatsDay Bulletin: Wi-Fi Hack, npm Worm, DeFi Theft, Phishing Blasts\u2014 and 15 More Stories",
+    "link": "https://thehackernews.com/2025/12/threatsday-bulletin-wi-fi-hack-npm-worm.html",
+    "published": "2025-12-04",
+    "summary": "Think your Wi-Fi is safe? Your coding tools? Or even your favorite financial apps? This week proves again how hackers, companies, and governments are all locked in a nonstop race to outsmart each other.\nHere\u2019s a quick rundown of the latest cyber stories that show how fast the game keeps changing.\n\n\n\n\n\n\n\n  \n  \n    DeFi exploit drains funds\n    \n      Critical yETH Exploit Used to Steal $9M",
+    "source": "https://feeds.feedburner.com/TheHackersNews",
+    "score": 0.5410000085830688,
     "tags": [
-      "supply chain attack"
+      "phishing"
+    ],
+    "Alert": "Nonstop Cyber Attacks: DeFi Exploit and Financial App Threats",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Initial Access",
+      "Execution",
+      "Persistence",
+      "Defense Evasion",
+      "Credential Access"
+    ],
+    "Mitre Techniques": [
+      "T1059.001",
+      "T1566"
+    ],
+    "Mitigation Suggestions": [
+      "Regularly update coding tools and financial apps",
+      "Implement robust security measures for Wi-Fi networks",
+      "Conduct thorough security audits on DeFi platforms",
+      "Use multi-factor authentication for sensitive financial transactions"
+    ],
+    "relevant_devices": [
+      "PC",
+      "Router/Firewall",
+      "file Server"
+    ]
+  },
+  {
+    "title": "5 Threats That Reshaped Web Security This Year [2025]",
+    "link": "https://thehackernews.com/2025/12/5-threats-that-reshaped-web-security.html",
+    "published": "2025-12-04",
+    "summary": "As 2025 draws to a close, security professionals face a sobering realization: the traditional playbook for web security has become dangerously obsolete. AI-powered attacks, evolving injection techniques, and supply chain compromises affecting hundreds of thousands of websites forced a fundamental rethink of defensive strategies.\nHere are the five threats that reshaped web security this year, and",
+    "source": "https://feeds.feedburner.com/TheHackersNews",
+    "score": 0.5,
+    "tags": [],
+    "Alert": "AI-Powered Web Security Threats",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Resource Development",
+      "Initial Access",
+      "Execution",
+      "Persistence",
+      "Privilege Escalation",
+      "Defense Evasion",
+      "Credential Access",
+      "Discovery",
+      "Lateral Movement",
+      "Collection",
+      "Command and Control",
+      "Exfiltration",
+      "Impact"
+    ],
+    "Mitre Techniques": [
+      "T1059.001",
+      "T1566",
+      "T1204.001",
+      "T1210",
+      "T1071.001",
+      "T1210",
+      "T1027",
+      "T1003",
+      "T1016",
+      "T1071",
+      "T1041",
+      "T1005",
+      "T1056.001"
+    ],
+    "Mitigation Suggestions": [
+      "Implement AI-powered threat detection systems",
+      "Regularly update and patch web applications",
+      "Conduct thorough risk assessments of supply chains",
+      "Implement web application firewalls (WAFs)",
+      "Monitor for suspicious injection techniques",
+      "Use secure coding practices to prevent vulnerabilities",
+      "Implement multi-factor authentication for web applications",
+      "Regularly back up and monitor web application logs"
+    ],
+    "relevant_devices": [
+      "email server",
+      "Router/Firewall",
+      "file Server",
+      "ISP",
+      "PC"
+    ]
+  },
+  {
+    "title": "SecAlerts Cuts Through the Noise with a Smarter, Faster Way to Track Vulnerabilities",
+    "link": "https://thehackernews.com/2025/12/secalerts-cuts-through-noise-with.html",
+    "published": "2025-12-02",
+    "summary": "Vulnerability management is a core component of every cybersecurity strategy. However, businesses often use thousands of software without realising it (when was the last time you checked?), and keeping track of all the vulnerability alerts, notifications, and updates can be a burden on resources and often leads to missed vulnerabilities.&nbsp;\nTaking into account that nearly 10% of",
+    "source": "https://feeds.feedburner.com/TheHackersNews",
+    "score": 0.4620000123977661,
+    "tags": [],
+    "Alert": "Vulnerability Management Overload",
+    "Mitre Tactics": [
+      "Reconnaissance",
+      "Defense Evasion"
+    ],
+    "Mitre Techniques": [],
+    "Mitigation Suggestions": [
+      "Regularly check and update software versions",
+      "Implement a vulnerability management system to track alerts and notifications",
+      "Prioritize and address critical vulnerabilities first"
+    ],
+    "relevant_devices": [
+      "PC"
     ]
   }
 ]

@@ -18,22 +18,38 @@ def extract_json_block(text):
 
 def enrich_article(summary):
     prompt = f"""
-You are a cybersecurity assistant. Given the following threat article summary, extract actionable insights relevant to preventing attacks. Include:
+You are a cybersecurity assistant. Given the following threat article summary, extract actionable insights relevant to preventing attacks.
 
-- Attack vectors or techniques mentioned
-- Defensive recommendations
-- Relevant MITRE ATT&CK tactics
-- Relevant devices (choose from: email, network, endpoint, cloud)
+Rules:
+1. If the summary is an advertisement, return exactly:
+{{
+  "Ad": true
+}}
+
+2. If the summary is actual news, return a JSON object with the following fields:
+  "Alert": a good name for the alert generated from this news which expresses the relevent threats expressed
+- "Mitre Tactics": an array of strings containing only these official MITRE ATT&CK tactic names:
+  ["Reconnaissance","Resource Development","Initial Access","Execution","Persistence","Privilege Escalation",
+   "Defense Evasion","Credential Access","Discovery","Lateral Movement","Collection","Command and Control",
+   "Exfiltration","Impact"]
+- "Mitre Techniques": an array of strings containing only MITRE ATT&CK technique codes (e.g., "T1059.001", "T1566").
+- "Mitigation Suggestions": an array of strings with clear, actionable steps.
+- "relevant_devices": an array of strings chosen only from this fixed list:
+  ["email server", "Router/Firewall", "file Server", "ISP", "PC"]
 
 Summary:
 \"\"\"
 {summary}
 \"\"\"
 
-Respond in structured JSON with fields:
-"attack_vectors", "defensive_measures", "mitre_tactics", "relevant_devices"
-Don't add anything that would cause a JSONDecodeError to be triggered
+Output requirements:
+- Respond ONLY in valid JSON.
+- Use the exact field names provided.
+- Do not include comments, explanations, or extra text outside the JSON.
+- Ensure the JSON is syntactically valid and will not cause JSONDecodeError.
 """
+
+
 
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
@@ -68,7 +84,10 @@ for article in articles:
     if all(k not in article for k in ["attack_vectors", "defensive_measures", "mitre_tactics", "relevant_devices"]):
         print(f"🔍 Enriching: {article['title']}")
         insights = enrich_article(article["summary"])
-        article.update(insights)
+        if insights.get("Ad",False):
+            continue
+        else:
+            article.update(insights)
         time.sleep(1.5)  # Respectful pacing
 
 # Save enriched DB

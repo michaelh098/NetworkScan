@@ -1,8 +1,23 @@
 import feedparser
 import json
+import re
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+
+def remove_emojis(text):
+    emoji_pattern = re.compile(
+        "["
+        "\U0001F600-\U0001F64F"  # emoticons
+        "\U0001F300-\U0001F5FF"  # symbols & pictographs
+        "\U0001F680-\U0001F6FF"  # transport & map symbols
+        "\U0001F1E0-\U0001F1FF"  # flags
+        "\U00002700-\U000027BF"  # dingbats
+        "\U000024C2-\U0001F251"  # enclosed characters
+        "]+",
+        flags=re.UNICODE
+    )
+    return emoji_pattern.sub(r'', text)
 
 class SafeEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -58,12 +73,12 @@ existing_keys = {article["title"] for article in existing_articles}
 for ep in endpoints["endpoints"]:
     feed = feedparser.parse(ep)
     if feed.entries:
-        for entry in feed.entries[:10]:
+        for entry in feed.entries[:10000]:
             summary = entry.title + " " + entry.summary
             summary_vec = model.encode(summary)
             score = cosine_similarity([profile_vec], [summary_vec])[0][0]
 
-            if score > 0.4 and entry.title not in existing_keys:
+            if score > 0.45 and entry.title not in existing_keys:
                 pub_date = entry.get("published", "unknown")
                 try:
                     parsed = datetime(*entry.published_parsed[:6])
@@ -74,10 +89,10 @@ for ep in endpoints["endpoints"]:
                 tags = generate_tags(summary, profile)
 
                 new_article = {
-                    "title": entry.title,
+                    "title": remove_emojis(entry.title),
                     "link": entry.link,
                     "published": pub_date,
-                    "summary": entry.summary,
+                    "summary": remove_emojis(entry.summary),
                     "source": ep,
                     "score": float(round(score, 3)),
                     "tags": tags
